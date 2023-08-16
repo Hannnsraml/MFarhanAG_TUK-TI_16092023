@@ -42,7 +42,7 @@ class StudentController extends Controller
         try {
             $data = $request->validate(
                 [
-                    'nim' => 'required|string|unique:student,nim',
+                    'nim' => 'required|string|unique:students,nim',
                     'name' => 'required|string',
                     'ttl' => 'required|string',
                     'alamat' => 'required|string',
@@ -51,7 +51,6 @@ class StudentController extends Controller
                     'nim.unique' => 'NIM yang dimasukkan telah terdaftar!'
                 ]
             );
-            return response()->json($data);
             $student = Student::create($data);
             return redirect()->route('student.show', $student->id);
         } catch (Exception $er) {
@@ -63,9 +62,14 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $student = Student::findOrFail($id);
+        $data = [
+            'title' => $student->name,
+            'student' => $student,
+        ];
+        return view('pages.student.show', $data);
     }
 
     /**
