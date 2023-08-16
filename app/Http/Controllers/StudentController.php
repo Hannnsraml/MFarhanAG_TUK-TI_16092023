@@ -52,6 +52,7 @@ class StudentController extends Controller
                 ]
             );
             $student = Student::create($data);
+            flash()->addSuccess('Data Mahasiswa berhasil ditambah');
             return redirect()->route('student.show', $student->id);
         } catch (Exception $er) {
             flash()->addError($er->getMessage());
@@ -91,7 +92,26 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $student = Student::findOrFail($id);
+            $data = $request->validate(
+                [
+                    'nim' => 'required|string|unique:students,nim',
+                    'name' => 'required|string',
+                    'ttl' => 'required|string',
+                    'alamat' => 'required|string',
+                ],
+                [
+                    'nim.unique' => 'NIM yang dimasukkan telah terdaftar!'
+                ]
+            );
+            $student->update($data);
+            flash()->addSuccess('Data Mahasiswa berhasil diperbaharui');
+            return redirect()->route('student.show', $student->id);
+        } catch (Exception $er) {
+            flash()->addError($er->getMessage());
+            return redirect()->back();
+        }
     }
 
     /**
@@ -99,7 +119,16 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $student = Student::findOrFail($id);
+            $student_name = $student->name;
+            $student->delete();
+            flash()->addSuccess('Data Mahasiswa ' . $student_name . ' berhasil dihapus');
+            return redirect()->route('student.index');
+        } catch (Exception $er) {
+            flash()->addError($er->getMessage());
+            return redirect()->back();
+        }
     }
 
     public function print()

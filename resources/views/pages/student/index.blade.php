@@ -76,8 +76,8 @@
                                                         <div class="modal-header">
                                                             <h5 class="modal-title"
                                                                 id="ModalDeleteDetailSkill{{ $student->id }}Label">
-                                                                Apakah anda yakin menghapus Surat Nomor
-                                                                "{{ $student->nomor }}"?
+                                                                Apakah anda yakin menghapus Data Mahasiswa
+                                                                "{{ $student->name }}"?
                                                             </h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close"></button>
