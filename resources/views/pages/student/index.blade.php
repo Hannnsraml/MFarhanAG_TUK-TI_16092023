@@ -21,6 +21,9 @@
                         <a href="{{ route('student.print') }}" target="_blank" class="btn btn-success"><i
                                 class="bi bi-printer"></i>
                             Cetak Data</a>
+                        <a href="{{ route('student.export') }}" target="_blank" class="btn btn-success"><i
+                                class="bi bi-file-earmark-excel"></i>
+                            Export Excel</a>
                     </div>
                 </div>
             </div><!-- End Page Title -->
@@ -44,7 +47,7 @@
                         <tbody>
                             @foreach ($students as $student)
                                 <tr>
-                                    <td>{{ $student->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->nim }}</td>
                                     <td>{{ $student->ttl }}</td>

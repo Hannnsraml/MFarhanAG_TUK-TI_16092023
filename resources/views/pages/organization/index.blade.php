@@ -21,6 +21,9 @@
                         <a href="{{ route('organization.print') }}" target="_blank" class="btn btn-success"><i
                                 class="bi bi-printer"></i>
                             Cetak Data</a>
+                        <a href="{{ route('organization.export') }}" target="_blank" class="btn btn-success"><i
+                                class="bi bi-file-earmark-excel"></i>
+                            Export Excel</a>
                     </div>
                 </div>
             </div><!-- End Page Title -->
@@ -42,7 +45,7 @@
                         <tbody>
                             @foreach ($organizations as $organization)
                                 <tr>
-                                    <td>{{ $organization->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $organization->ukm_name }}</td>
                                     <td>{{ $organization->deskripsi }}</td>
                                     <td>
@@ -72,8 +75,8 @@
                                                         <div class="modal-header">
                                                             <h5 class="modal-title"
                                                                 id="ModalDeleteDetailSkill{{ $organization->id }}Label">
-                                                                Apakah anda yakin menghapus Surat Nomor
-                                                                "{{ $organization->nomor }}"?
+                                                                Apakah anda yakin menghapus UKM
+                                                                "{{ $organization->ukm_name }}"?
                                                             </h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close"></button>

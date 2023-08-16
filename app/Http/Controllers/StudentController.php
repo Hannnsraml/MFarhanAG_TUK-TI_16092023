@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StudentsExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Exception;
@@ -139,5 +141,11 @@ class StudentController extends Controller
             'students' => $students,
         ];
         return view('pages.student.print', $data);
+    }
+
+    public function export() 
+    {
+        // dd('ini mau');
+        return Excel::download(new StudentsExport, 'students.xlsx');
     }
 }

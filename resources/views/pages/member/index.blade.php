@@ -17,10 +17,13 @@
 
                     <div class="pb-2">
                         <a href="{{ route('member.create') }}" class="btn btn-primary"><i class="bi bi-plus"></i>
-                            Tambah Data</a>
+                            Daftar Anggota UKM</a>
                         <a href="{{ route('member.print') }}" target="_blank" class="btn btn-success"><i
                                 class="bi bi-printer"></i>
                             Cetak Data</a>
+                        <a href="{{ route('member.export') }}" target="_blank" class="btn btn-success"><i
+                                class="bi bi-file-earmark-excel"></i>
+                            Export Excel</a>
                     </div>
                 </div>
             </div><!-- End Page Title -->
@@ -74,8 +77,9 @@
                                                         <div class="modal-header">
                                                             <h5 class="modal-title"
                                                                 id="ModalDeleteDetailSkill{{ $member->id }}Label">
-                                                                Apakah anda yakin menghapus Surat Nomor
-                                                                "{{ $member->nomor }}"?
+                                                                Apakah anda yakin menghapus Anggota
+                                                                {{ $member->student->name }} UKM
+                                                                "{{ $member->organization->ukm_name }}"?
                                                             </h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close"></button>

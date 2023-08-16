@@ -38,15 +38,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('member', MemberController::class);
 
     //Cetak custom controller
-    Route::get('student/print', [StudentController::class, 'print'])->name('student.print');    
-    Route::get('organization/print', [OrganizationController::class, 'print'])->name('organization.print');    
-    Route::get('member/print', [MemberController::class, 'print'])->name('member.print');    
+    Route::get('student/print/pdf', [StudentController::class, 'print'])->name('student.print');
+    Route::get('organization/print/pdf', [OrganizationController::class, 'print'])->name('organization.print');
+    Route::get('member/print/pdf', [MemberController::class, 'print'])->name('member.print');
 
-    //test
-    // Route::get('surat-masuk/print', [SuratMasukController::class, 'print'])->name('surat-masuk.print');
-    // Route::resource('surat-masuk', SuratMasukController::class);
-    // Route::get('surat-keluar/print', [SuratKeluarController::class, 'print'])->name('surat-keluar.print');
-    // Route::resource('surat-keluar', SuratKeluarController::class);
+    //export excel
+    Route::get('student/export/excel', [StudentController::class, 'export'])->name('student.export');
+    Route::get('organization/export/excel', [OrganizationController::class, 'export'])->name('organization.export');
+    Route::get('member/export/excel', [MemberController::class, 'export'])->name('member.export');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
