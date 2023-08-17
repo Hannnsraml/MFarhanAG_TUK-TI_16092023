@@ -1,6 +1,6 @@
 # MFarhanAG_TUK-TI_14092023
 
-# Sistem Informasi Surat Masuk Dan Surat Keluar
+# Sistem Informasi Pengelolaan Anggota UKM
 
 ## Cara Penggunaan :
 
@@ -23,10 +23,7 @@ DB_PASSWORD=[password database]
 ```
 php artisan migrate
 
-php artisan db:seed --class=UserSeeder
-php artisan db:seed --class=JenisSuratSeeder
-php artisan db:seed --class=PengesahSeeder
-php artisan db:seed --class=UnitPenerbitSeeder
+php artisan db:seed 
 ```
 
 #### 4. Install npm

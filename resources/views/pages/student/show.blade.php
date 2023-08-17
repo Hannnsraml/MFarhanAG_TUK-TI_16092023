@@ -8,7 +8,7 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('student.index') }}">Surat Masuk</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('student.index') }}">Mahasiswa</a></li>
                         <li class="breadcrumb-item active">{{ $title }}</li>
                     </ol>
                 </nav>

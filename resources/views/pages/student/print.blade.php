@@ -95,7 +95,7 @@
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title"
                                                                     id="ModalDeleteDetailSkill{{ $student->id }}Label">
-                                                                    Apakah anda yakin menghapus Surat Nomor
+                                                                    Apakah anda yakin menghapus
                                                                     "{{ $student->nomor }}"?
                                                                 </h5>
                                                                 <button type="button" class="btn-close"
